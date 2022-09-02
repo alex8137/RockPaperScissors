@@ -10,9 +10,25 @@ function getComputerChoice(){
   }
 }
 
+function playRound(playerSelection, computerSelection){
+  // return every single round result
+  let playerPart1 = playerSelection.toUpperCase().charAt(0);
+  let playerPart2 = playerSelection.toLowerCase().slice(1);
+  let player = playerPart1 + playerPart2;
+
+  if (player==="Rock" && computerSelection==="Scissors" || player==="Paper" && computerSelection==="Rock" || player==="Scissors" && computerSelection==="Paper"){
+    return `You Win! Your ${player} beats ${computerSelection}!`;
+  }else if (player===computerSelection){
+    return `Tie! Both choose same object, ${player}!`;
+  }else {
+    return `You Lose! Your ${player} is beaten by ${computerSelection}!`;
+  }
+}
 
 
 
 
 
-console.log(getComputerChoice());
+const playerSelection = "paPEr";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
